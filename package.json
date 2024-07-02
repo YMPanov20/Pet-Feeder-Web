@@ -11,6 +11,7 @@
     "generate-api": "java -jar swagger-codegen-cli.jar generate -i http://localhost:5051/swagger/v1/swagger.json -l typescript-axios -o src/api/"
   },
   "dependencies": {
+    "20": "^3.1.9",
     "@radix-ui/react-navigation-menu": "^1.1.4",
     "axios": "^1.7.2",
     "class-variance-authority": "^0.7.0",

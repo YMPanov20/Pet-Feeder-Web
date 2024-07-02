@@ -1,10 +1,8 @@
-import React, { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import authenticationService from "../services/authentication-service";
-import storageService from "../services/storage-service";
 import {Form, Link, useNavigate} from "react-router-dom"
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import {ResponseData } from "../services/apiTypes";
 
 
 export default function Register() {
@@ -50,7 +48,7 @@ export default function Register() {
 		  return;
 		}
 	
-		await authenticationService.makeRegisterRequest(email, password).then(function (response) {
+		await authenticationService.makeRegisterRequest(email, password).then(function () {
 		  navigate("/login")
 	
 	

@@ -50,7 +50,7 @@ const tokenCheck = async () => {
 };
 
 // Call the tokenCheck function once immediately
-await tokenCheck();
+tokenCheck();
 
 // Set up an interval to call the tokenCheck function periodically
 setInterval(tokenCheck, REFRESH_TOKEN_CHEKING_INTERVAL);

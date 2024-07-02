@@ -11,7 +11,6 @@ function pet() {
   const [weight, setWeight] = useState<number | undefined>(undefined);
   const [feedingTime, setFeedingTime] = useState('');
   const [feedingDay, setFeedingDay] = useState('');
-  const [activePetId, setActivePetId] = useState<string>('');
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -29,10 +28,6 @@ function pet() {
       setWeight(pet.weight);
       setFeedingTime(pet.timer||'');
       setFeedingDay(pet.day||'');
-      const storedActivePetId = localStorage.getItem('activePetId');
-      if (typeof storedActivePetId === 'string') {
-        setActivePetId(storedActivePetId);
-      }
     } catch (error) {
       console.error('Error fetching pet details:', error);
     }

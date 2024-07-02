@@ -16,5 +16,5 @@
  * @export
  * @interface HttpValidationProblemDetails
  */
-export interface HttpValidationProblemDetails extends null<String, any> {
+export interface HttpValidationProblemDetails {
 }

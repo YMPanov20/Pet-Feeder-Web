@@ -19,7 +19,9 @@ jobs:
         with:
           submodules: true
           lfs: false
-
+      - name: Remove extraheader
+        run: git config --unset-all http.https://github.com/.extraheader || true
+        
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with: 

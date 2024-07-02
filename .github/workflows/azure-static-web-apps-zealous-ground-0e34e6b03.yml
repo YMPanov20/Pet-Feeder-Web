@@ -17,15 +17,24 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
-          with:
-          node-version: '20'
           submodules: true
           lfs: false
+      - name: Remove extraheader
+        run: git config --unset-all http.https://github.com/.extraheader || true
+        
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with: 
+          node-version: '20'
+
+      - name: Install Dependencies
+        run: npm install
+      
       - name: Build And Deploy
         id: builddeploy
         uses: Azure/static-web-apps-deploy@v1
         with:
-          azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_MANGO_POND_054B0A003 }}
+          azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_ZEALOUS_GROUND_0E34E6B03 }}
           repo_token: ${{ secrets.GITHUB_TOKEN }} # Used for Github integrations (i.e. PR comments)
           action: "upload"
           ###### Repository/Build Configurations - These values can be configured to match your app requirements. ######
@@ -44,5 +53,5 @@ jobs:
         id: closepullrequest
         uses: Azure/static-web-apps-deploy@v1
         with:
-          azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_MANGO_POND_054B0A003 }}
+          azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_ZEALOUS_GROUND_0E34E6B03 }}
           action: "close"
